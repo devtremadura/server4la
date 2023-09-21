@@ -4,6 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.RedisHash;
 
@@ -11,11 +16,16 @@ import org.springframework.data.redis.core.RedisHash;
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Entity
 @RedisHash("playedHand")
 public class PlayedHand {
 
     @Id
     private String key;
+
+    private Card pinte;
+    private Player winnerPlayer;
+    private List<Card> cards;
 
     private String handName;
 
