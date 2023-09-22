@@ -39,6 +39,8 @@ output/
 logs/
 
 
+bin/*
+
 #VSCode
 
 .vscode/
