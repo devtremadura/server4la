@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 public class Game {
 
     @Id
-    private String id;
+    private Long id;
 
     private Team winnerTeam;
 }

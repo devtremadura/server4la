@@ -25,13 +25,13 @@ public class Team {
 
     @Id
     @Column
-    private String id;
+    private Long id;
 
     @Column
-    private String totalScore;
+    private Integer totalScore;
 
     @Column
-    private String points;
+    private Integer points;
 
     @Column
     private List<Card> cards;

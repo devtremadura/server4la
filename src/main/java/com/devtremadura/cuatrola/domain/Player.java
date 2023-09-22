@@ -26,7 +26,7 @@ public class Player {
 
     @Id
     @Column
-    private String id;
+    private Long id;
 
     @Column
     private Boolean alone;

@@ -23,7 +23,7 @@ public class User {
 
     @Id
     @Column
-    private String id;
+    private Long id;
 
     @Column
     private String name;

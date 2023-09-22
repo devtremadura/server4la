@@ -24,7 +24,7 @@ public class Room {
 
     @Id
     @Column
-    private String id;
+    private Long id;
 
     @OneToMany(mappedBy = "room")
     private List<Team> teams;

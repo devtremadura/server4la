@@ -22,10 +22,10 @@ public class Media {
 
     @Id
     @Column
-    private String id;
+    private Long id;
 
     @Column
-    private String data;
+    private byte[] data;
 
     @Column
     private String type;

@@ -21,7 +21,7 @@ import org.springframework.data.redis.core.RedisHash;
 public class PlayedHand {
 
     @Id
-    private String key;
+    private Long id;
 
     private Card pinte;
     private Player winnerPlayer;
