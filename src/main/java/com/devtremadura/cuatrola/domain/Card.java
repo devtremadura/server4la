@@ -1,12 +1,6 @@
 package com.devtremadura.cuatrola.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 public class Card {
 
     @Id
+    @GeneratedValue(generator = "card_sequence", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "card_sequence", sequenceName = "card_sequence", allocationSize = 1)
     @Column
     private Long id;
 
@@ -34,7 +30,4 @@ public class Card {
     @Column
     private Integer rating;
 
-    @ManyToOne
-    @JoinColumn(name = "player_id")
-    private Player player;
 }

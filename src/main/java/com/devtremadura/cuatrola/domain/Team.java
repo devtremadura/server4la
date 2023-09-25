@@ -1,14 +1,6 @@
 package com.devtremadura.cuatrola.domain;
 
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,17 +16,16 @@ import lombok.RequiredArgsConstructor;
 public class Team {
 
     @Id
+    @GeneratedValue(generator = "teams_sequence", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "teams_sequence", sequenceName = "teams_sequence", allocationSize = 1)
     @Column
     private Long id;
 
     @Column
-    private Integer totalScore;
+    private Integer totalScore = 0;
 
-    @Column
-    private Integer points;
-
-    @Column
-    private List<Card> cards;
+    @Column()
+    private Integer points = 0;
 
     @ManyToOne
     @JoinColumn(name = "room_id")

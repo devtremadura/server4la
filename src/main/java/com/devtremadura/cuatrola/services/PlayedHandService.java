@@ -1,6 +1,6 @@
 package com.devtremadura.cuatrola.services;
 
-import com.devtremadura.cuatrola.domain.PlayedHand;
+import com.devtremadura.cuatrola.domain.redis.PlayedHand;
 
 public interface PlayedHandService {
 

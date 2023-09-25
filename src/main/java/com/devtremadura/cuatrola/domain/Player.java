@@ -2,29 +2,25 @@ package com.devtremadura.cuatrola.domain;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+@Entity
 @Data
 @Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Entity
 @Table(name = "players")
 public class Player {
 
     @Id
+    @GeneratedValue(generator = "players_sequence", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "players_sequence", sequenceName = "players_sequence", allocationSize = 1)
     @Column
     private Long id;
 
@@ -44,7 +40,5 @@ public class Player {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "player")
-    private List<Card> cards;
 
 }

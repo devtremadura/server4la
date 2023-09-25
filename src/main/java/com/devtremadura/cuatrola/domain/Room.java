@@ -2,12 +2,7 @@ package com.devtremadura.cuatrola.domain;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,9 +15,11 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "rooms")
-public class Room {
+public class Room implements Score{
 
     @Id
+    @GeneratedValue(generator = "rooms_sequence", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "rooms_sequence", sequenceName = "rooms_sequence", allocationSize = 1)
     @Column
     private Long id;
 
@@ -32,6 +29,8 @@ public class Room {
     @Column
     private String code;
 
-    @Column
-    private Integer scoreGames; // deberia ser un tipo Score { a: X, b: Y }
+
+    @OneToMany(mappedBy = "room")
+    private List<Game> game;
+
 }

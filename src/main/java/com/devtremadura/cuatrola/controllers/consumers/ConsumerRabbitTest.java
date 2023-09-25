@@ -1,6 +1,6 @@
 package com.devtremadura.cuatrola.controllers.consumers;
 
-import com.devtremadura.cuatrola.domain.PlayedHand;
+import com.devtremadura.cuatrola.domain.redis.PlayedHand;
 import com.devtremadura.cuatrola.services.PlayedHandService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,12 +1,6 @@
 package com.devtremadura.cuatrola.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +16,8 @@ import lombok.RequiredArgsConstructor;
 public class User {
 
     @Id
+    @GeneratedValue(generator = "users_sequence", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "users_sequence", sequenceName = "users_sequence", allocationSize = 1)
     @Column
     private Long id;
 
@@ -34,11 +30,7 @@ public class User {
     @Column
     private String nickname;
 
-    @Column
-    private String password; // ??
-
-    @OneToOne(optional = true)
-    @JoinColumn(name = "media_id")
+    @OneToOne(mappedBy = "user")
     private Media media;
 
     @OneToOne(mappedBy = "user")

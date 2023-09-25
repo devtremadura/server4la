@@ -1,11 +1,6 @@
 package com.devtremadura.cuatrola.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,8 +16,13 @@ import lombok.RequiredArgsConstructor;
 public class Media {
 
     @Id
+    @GeneratedValue(generator = "media_sequence", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "media_sequence", sequenceName = "media_sequence", allocationSize = 1)
     @Column
     private Long id;
+
+    @Column
+    private String title;
 
     @Column
     private byte[] data;
@@ -30,6 +30,7 @@ public class Media {
     @Column
     private String type;
 
-    @OneToOne(mappedBy = "media")
+    @OneToOne()
+    @JoinColumn(name = "user_id")
     private User user;
 }

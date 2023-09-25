@@ -10,6 +10,15 @@ spring:
     password: guest
     virtual-host: /
 
+  datasource:
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://ep-dry-fire-93265970.eu-central-1.aws.neon.tech:5432/neondb
+    username: aminechaghir1999
+    password: gwHBXGy9CJ1T
+    hikari:
+      maxLifeTime: 600000 #10 minutes wait time
+
   data:
     redis:
       host: localhost

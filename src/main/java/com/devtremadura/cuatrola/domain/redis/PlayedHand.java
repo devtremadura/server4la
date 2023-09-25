@@ -1,5 +1,7 @@
-package com.devtremadura.cuatrola.domain;
+package com.devtremadura.cuatrola.domain.redis;
 
+import com.devtremadura.cuatrola.domain.Card;
+import com.devtremadura.cuatrola.domain.Player;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
