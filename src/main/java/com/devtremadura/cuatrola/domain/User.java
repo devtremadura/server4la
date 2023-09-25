@@ -22,7 +22,7 @@ public class User {
     private Long id;
 
     @Column
-    private String name;
+    private String firstname;
 
     @Column
     private String surname;

@@ -2,7 +2,6 @@ package com.devtremadura.cuatrola.domain;
 
 import java.util.List;
 
-
 import jakarta.persistence.*;
 
 import lombok.AllArgsConstructor;
@@ -25,20 +24,19 @@ public class Player {
     private Long id;
 
     @Column
-    private Boolean alone;
+    private Boolean alone = false;
 
     @Column
-    private Boolean cuatrola;
+    private Boolean cuatrola = false;
 
     @Column
-    private Integer shoutedTwenty;
+    private Integer shoutedTwenty = 0;
 
     @Column
-    private Boolean shoutedForty;
+    private Boolean shoutedForty = false;
 
     @OneToOne()
     @JoinColumn(name = "user_id")
     private User user;
-
 
 }

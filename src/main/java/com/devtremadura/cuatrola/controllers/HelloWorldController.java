@@ -4,6 +4,8 @@ package com.devtremadura.cuatrola.controllers;
 import com.devtremadura.cuatrola.domain.Player;
 import com.devtremadura.cuatrola.domain.User;
 import com.devtremadura.cuatrola.services.PlayerService;
+import com.devtremadura.cuatrola.services.UserService;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,21 +28,24 @@ public class HelloWorldController {
     private IHelloWorldSerivce helloWorldService;
 
     @Autowired
-    private RabbitTemplate rabbitTemplate;
+    private PlayerService playerService;
 
     @Autowired
-    private PlayerService playerService;
+    private UserService userService;
 
     @GetMapping("/hello")
     public String hello() {
 
-        //rabbitTemplate.convertAndSend("hello", Hello.builder().message("asdfasdfasd").build());
+        // rabbitTemplate.convertAndSend("hello",
+        // Hello.builder().message("asdfasdfasd").build());
 
         User u = User.builder()
-                .name("Test")
+                .firstname("Test")
                 .surname("Test")
                 .nickname("@test")
                 .build();
+
+        userService.saveUser(u);
 
         Player p = Player.builder()
                 .alone(false)
@@ -49,7 +54,6 @@ public class HelloWorldController {
                 .shoutedTwenty(0)
                 .user(u)
                 .build();
-
 
         playerService.savePlayer(p);
 

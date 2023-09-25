@@ -11,7 +11,6 @@ spring:
     virtual-host: /
 
   datasource:
-    platform: postgres
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://ep-dry-fire-93265970.eu-central-1.aws.neon.tech:5432/neondb
     username: aminechaghir1999
@@ -33,6 +32,5 @@ spring:
         maxWait: 30000
       repositories:
         enabled: true
-
 #----------------------------------------
 
