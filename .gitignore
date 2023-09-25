@@ -11,6 +11,7 @@ output/
 **/*.iml
 *.ipr
 *.iws
+.gradle/**
 
 
 # OSX
