@@ -1,9 +1,6 @@
 package com.devtremadura.cuatrola.domain;
 
-import java.util.List;
-
 import jakarta.persistence.*;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,15 +20,19 @@ public class Player {
     @Column
     private Long id;
 
+    @Builder.Default
     @Column
     private Boolean alone = false;
 
+    @Builder.Default
     @Column
     private Boolean cuatrola = false;
 
+    @Builder.Default
     @Column
     private Integer shoutedTwenty = 0;
 
+    @Builder.Default
     @Column
     private Boolean shoutedForty = false;
 
